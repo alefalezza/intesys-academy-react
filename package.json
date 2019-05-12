@@ -1,0 +1,42 @@
+{
+  "name": "react-parcel-minimal-setup",
+  "version": "1.0.0",
+  "description": "React single page application with parceljs builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alefalezza/react-parcel-minimal-setup.git"
+  },
+  "main": "dist/index.html",
+  "scripts": {
+    "start": "parcel public/index.html",
+    "build": "parcel build public/index.html",
+    "test": "jest"
+  },
+  "author": "Alessandro Falezza",
+  "license": "MIT",
+  "dependencies": {
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.12.1",
+    "enzyme-to-json": "^3.3.5",
+    "jest": "^24.7.1",
+    "node-sass": "^4.12.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.17.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "tslib": "^1.9.3",
+    "typescript": "^3.4.5"
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.9.1",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/enzyme-to-json": "^1.5.3",
+    "@types/jest": "^24.0.12",
+    "@types/node": "^11.13.8",
+    "@types/parcel-bundler": "^1.12.0",
+    "@types/prettier": "^1.16.3",
+    "@types/react": "^16.8.15",
+    "@types/react-dom": "^16.8.4",
+    "@types/sass": "^1.16.0"
+  }
+}
