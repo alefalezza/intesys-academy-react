@@ -1,0 +1,89 @@
+@import "../../../variables.scss";
+$toolbar-height: 56px;
+$toolbar-horizontal-padding: 15px;
+$menu-height: 76px;
+$menu-horizontal-padding: 30px;
+
+@mixin height($height) {
+  height: $height;
+  line-height: $height;
+}
+
+@mixin horizontal-menu($height, $item-padding: 20px) {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    height: $height;
+    li {
+      padding: 0 $item-padding;
+      line-height: 1em;
+      color: $secondary-color;
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+}
+
+.layout {
+  &-header {
+    background: $app-header-background;
+    box-shadow: 0 0 15px darken($app-body-background, 10%);
+    margin-bottom: 35px;
+    &-toolbar {
+      @include height($toolbar-height);
+      padding: 0 $menu-horizontal-padding;
+      border-bottom: 1px solid #eee;
+      &-welcome-message {
+        font-size: 0.8em;
+        color: $secondary-color;
+      }
+      &-menu {
+        @include horizontal-menu($toolbar-height, 15px);
+        display: flex;
+        justify-content: space-between;
+        &-search {
+          width: 100%;
+          padding: 0 $toolbar-horizontal-padding;
+          border-left: 1px solid #eee;
+          border-right: 1px solid #eee;
+          i {
+            vertical-align: middle;
+            color: $secondary-color;
+          }
+          input {
+            display: inline-block;
+            color: $secondary-color;
+            border: none;
+            margin-left: $toolbar-horizontal-padding;
+          }
+        }
+        ul {
+          justify-content: flex-end;
+          padding-left: $menu-horizontal-padding;
+        }
+      }
+    }
+    &-menu {
+      @include height($menu-height);
+      padding: 0 $menu-horizontal-padding;
+      img {
+        vertical-align: middle;
+        max-width: 100%;
+      }
+      .logo {
+        // margin: 0 0 0 15%;
+      }
+      .menu {
+        @include horizontal-menu($menu-height);
+      }
+    }
+  }
+}
