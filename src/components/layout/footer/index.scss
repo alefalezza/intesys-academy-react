@@ -5,8 +5,12 @@
   color: #fff;
   padding: 45px 0;
   margin-top: 100px;
+  font-size: 0.8em;
   &-content {
     max-width: $app-body-width;
     margin: 0 auto;
+  }
+  &__logo-informatici {
+    text-align: right;
   }
 }
