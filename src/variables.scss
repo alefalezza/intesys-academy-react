@@ -1,8 +1,11 @@
 $app-body-width: 1250px;
 
+$mdc-theme-primary: #fe4641;
+$mdc-theme-secondary: #8d8d8f;
+$mdc-theme-background: #f8f4f4;
+
 $app-header-background: #fff;
-$app-body-background: #f8f4f4;
 $app-footer-background: #444444;
 
-$primary-color: #fe4641;
-$secondary-color: #8d8d8f;
+$primary-color: $mdc-theme-primary;
+$secondary-color: $mdc-theme-secondary;
