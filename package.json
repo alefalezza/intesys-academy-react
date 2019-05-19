@@ -25,6 +25,7 @@
     "@material/react-select": "^0.12.1",
     "@material/react-text-field": "^0.12.1",
     "@material/react-typography": "^0.12.0",
+    "@types/react-router-dom": "^4.3.3",
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "enzyme-to-json": "^3.3.5",
@@ -35,6 +36,7 @@
     "prettier": "^1.17.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-router-dom": "^5.0.0",
     "tslib": "^1.9.3",
     "typescript": "^3.4.5"
   },

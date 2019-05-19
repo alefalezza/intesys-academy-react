@@ -1,0 +1,35 @@
+@import "../../variables.scss";
+
+.breadcrumb {
+  ul {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    font-size: 0.9em;
+  }
+
+  .breadcrumb_el {
+    color: $mdc-theme-primary;
+    padding: 10px 0;
+    &:after {
+      display: inline-block;
+      padding: 0 10px;
+      content: "/";
+    }
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+    &--active {
+      color: $mdc-theme-secondary;
+      a {
+        color: $mdc-theme-secondary;
+      }
+    }
+    a {
+      text-decoration: none;
+      color: $mdc-theme-primary;
+    }
+  }
+}
