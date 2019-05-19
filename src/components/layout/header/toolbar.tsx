@@ -4,10 +4,10 @@ import MaterialIcon from "@material/react-material-icon";
 
 const Toolbar: React.FunctionComponent = () => (
   <Row className='layout-header-toolbar'>
-    <Cell columns={5} className='layout-header-toolbar-welcome-message'>
+    <Cell columns={6} className='layout-header-toolbar-welcome-message'>
       Hospital St. Democrito - Welcome back, Mario Rossi
     </Cell>
-    <Cell columns={7} className='layout-header-toolbar-menu'>
+    <Cell columns={6} className='layout-header-toolbar-menu'>
       <div className='layout-header-toolbar-menu-search'>
         <MaterialIcon icon='search' />
         <input type='text' placeholder='search' />
