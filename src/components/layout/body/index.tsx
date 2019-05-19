@@ -6,12 +6,7 @@ import "./index.scss";
 const Body: React.FunctionComponent = props => (
   <div className='layout-body'>
     <Row>
-      <Cell>
-        {props.children}
-        <TextField label='Name'>
-          <Input value='' />
-        </TextField>
-      </Cell>
+      <Cell>{props.children}</Cell>
     </Row>
   </div>
 );
