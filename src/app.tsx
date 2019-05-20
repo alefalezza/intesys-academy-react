@@ -5,7 +5,7 @@ import Routes from "./routes";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const App: React.FunctionComponent = () => (
-  <div className='__show-structure'>
+  <div className="__show-structure">
     <Router>
       <Layout>
         <Routes />

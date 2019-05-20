@@ -3,9 +3,9 @@ import React from "react";
 import "./index.scss";
 
 const Body: React.FunctionComponent = props => (
-  <div className='layout-body'>
+  <div className="layout-body">
     <Row>
-      <Cell>{props.children}</Cell>
+      <Cell columns={12}>{props.children}</Cell>
     </Row>
   </div>
 );
