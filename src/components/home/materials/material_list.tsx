@@ -1,39 +1,48 @@
 import Tab from "@material/react-tab";
 import TabBar from "@material/react-tab-bar";
-import React, { useState } from "react";
+import React from "react";
 import MaterialItem from "./material_item";
-import { IMaterialList, IMaterialItem } from "./types";
+import { IMaterialItem, IMaterialList } from "./types";
 
-const MaterialList: React.FunctionComponent<IMaterialList> = props => {
-  const [activeTab, setActiveTab] = useState(0);
+interface IState {
+  activeTab: number;
+}
 
-  const handleActiveTabUpdate = (activeIndex: number) =>
-    setActiveTab(activeIndex);
+class MaterialList extends React.Component<IMaterialList, IState> {
+  listMap: string[];
 
-  const listMap = ["drugs", "nursing"];
+  constructor(props: IMaterialList) {
+    super(props);
+    this.state = { activeTab: 0 };
+    this.listMap = ["drugs", "nursing"];
+  }
 
-  const activeList = listMap[activeTab];
+  handleActiveTabUpdate = (activeTab: number) => {
+    this.setState({ activeTab });
+  };
 
-  const list: IMaterialItem[] = props[activeList];
+  render() {
+    const activeList = this.listMap[this.state.activeTab];
+    const list: IMaterialItem[] = this.props[activeList];
+    return (
+      <React.Fragment>
+        <TabBar
+          className="drug_list__header"
+          activeIndex={this.state.activeTab}
+          handleActiveIndexUpdate={this.handleActiveTabUpdate}
+        >
+          <Tab active>Running out drugs</Tab>
+          <Tab>Running out nursing material</Tab>
+        </TabBar>
 
-  return (
-    <React.Fragment>
-      <TabBar
-        className="drug_list__header"
-        activeIndex={activeTab}
-        handleActiveIndexUpdate={handleActiveTabUpdate}
-      >
-        <Tab active>Running out drugs</Tab>
-        <Tab>Running out nursing material</Tab>
-      </TabBar>
+        {list.map(item => (
+          <MaterialItem {...item} key={item.id} />
+        ))}
 
-      {list.map(item => (
-        <MaterialItem {...item} />
-      ))}
-
-      <Tab className="drug_list__see_all_button">See all materials</Tab>
-    </React.Fragment>
-  );
-};
+        <Tab className="drug_list__see_all_button">See all materials</Tab>
+      </React.Fragment>
+    );
+  }
+}
 
 export default MaterialList;
