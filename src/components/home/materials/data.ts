@@ -19,7 +19,9 @@ export const materialList: IMaterialList = {
       name: "Adderall",
       quantity: 3,
       weeksForRefueling: 3
-    },
+    }
+  ],
+  nursing: [
     {
       id: 1,
       name: "Alprazolam",
@@ -43,26 +45,6 @@ export const materialList: IMaterialList = {
       name: "Amoxicillin",
       quantity: 150,
       weeksForRefueling: 1
-    }
-  ],
-  nursing: [
-    {
-      id: 1,
-      name: "Erotricimina",
-      quantity: 50,
-      weeksForRefueling: 1
-    },
-    {
-      id: 1,
-      name: "Acetaminophen",
-      quantity: 500,
-      weeksForRefueling: 4
-    },
-    {
-      id: 1,
-      name: "Adderall",
-      quantity: 3,
-      weeksForRefueling: 3
     }
   ]
 };

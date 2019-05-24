@@ -1,18 +1,33 @@
 import Tab from "@material/react-tab";
 import TabBar from "@material/react-tab-bar";
-import React from "react";
+import React, { useState } from "react";
 import MaterialItem from "./material_item";
-import { IMaterialList } from "./types";
+import { IMaterialList, IMaterialItem } from "./types";
 
 const MaterialList: React.FunctionComponent<IMaterialList> = props => {
+  const [activeTab, setActiveTab] = useState(0);
+
+  const handleActiveTabUpdate = (activeIndex: number) =>
+    setActiveTab(activeIndex);
+
+  const listMap = ["drugs", "nursing"];
+
+  const activeList = listMap[activeTab];
+
+  const list: IMaterialItem[] = props[activeList];
+
   return (
     <React.Fragment>
-      <TabBar className="drug_list__header">
+      <TabBar
+        className="drug_list__header"
+        activeIndex={activeTab}
+        handleActiveIndexUpdate={handleActiveTabUpdate}
+      >
         <Tab active>Running out drugs</Tab>
         <Tab>Running out nursing material</Tab>
       </TabBar>
 
-      {props.drugs.map(item => (
+      {list.map(item => (
         <MaterialItem {...item} />
       ))}
 
