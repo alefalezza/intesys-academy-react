@@ -28,7 +28,7 @@ const MaterialList: React.FunctionComponent<IMaterialList> = props => {
       </TabBar>
 
       {list.map(item => (
-        <MaterialItem {...item} />
+        <MaterialItem {...item} key={item.id} />
       ))}
 
       <Tab className="drug_list__see_all_button">See all materials</Tab>

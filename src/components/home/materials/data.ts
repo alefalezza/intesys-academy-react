@@ -9,13 +9,13 @@ export const materialList: IMaterialList = {
       weeksForRefueling: 1
     },
     {
-      id: 1,
+      id: 2,
       name: "Acetaminophen",
       quantity: 500,
       weeksForRefueling: 4
     },
     {
-      id: 1,
+      id: 3,
       name: "Adderall",
       quantity: 3,
       weeksForRefueling: 3
@@ -29,19 +29,19 @@ export const materialList: IMaterialList = {
       weeksForRefueling: 4
     },
     {
-      id: 1,
+      id: 2,
       name: "Amitriptyline",
       quantity: 10,
       weeksForRefueling: 4
     },
     {
-      id: 1,
+      id: 3,
       name: "Amlodipine",
       quantity: 50,
       weeksForRefueling: 2
     },
     {
-      id: 1,
+      id: 4,
       name: "Amoxicillin",
       quantity: 150,
       weeksForRefueling: 1
