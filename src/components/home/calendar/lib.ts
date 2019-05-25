@@ -16,6 +16,7 @@ export const useDate: IUseDate = initialDate => {
     const month = date.getMonth();
     const year = date.getFullYear();
     const newDate = new Date();
+    newDate.setDate(1);
     if (month == 11) {
       newDate.setMonth(0);
       newDate.setFullYear(year + 1);
@@ -30,6 +31,7 @@ export const useDate: IUseDate = initialDate => {
     const month = date.getMonth();
     const year = date.getFullYear();
     const newDate = new Date();
+    newDate.setDate(1);
     if (month == 0) {
       newDate.setMonth(11);
       newDate.setFullYear(year - 1);
