@@ -17,10 +17,8 @@
   "dependencies": {
     "@material/react-button": "^0.12.1",
     "@material/react-card": "^0.12.1",
-    "@material/react-checkbox": "^0.12.0",
     "@material/react-icon-button": "^0.12.0",
     "@material/react-layout-grid": "^0.12.1",
-    "@material/react-list": "^0.12.0",
     "@material/react-material-icon": "^0.12.0",
     "@material/react-select": "^0.12.1",
     "@material/react-tab": "^0.12.0",
@@ -33,6 +31,7 @@
     "enzyme-to-json": "^3.3.5",
     "jest": "^24.7.1",
     "material-components-web": "^2.1.1",
+    "moment": "^2.24.0",
     "node-sass": "^4.12.0",
     "parcel-bundler": "^1.12.3",
     "prettier": "^1.17.0",

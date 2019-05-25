@@ -1,54 +1,22 @@
-import { Cell, Row } from "@material/react-layout-grid";
-import React from "react";
+import moment from "moment";
+import React, { useContext } from "react";
+import { AppointmentsContext, CalendarContext } from "..";
+import { IAppointment } from "../data";
+import Appointment from "./appointment";
 import "./index.scss";
 
-const Appointments: React.FunctionComponent = () => (
-  <div className="calendar__appointment_list">
-    <Row className="calendar__appointment_list__item">
-      <Cell columns={2} className="calendar__appointment_list__item__hour">
-        10.00
-      </Cell>
-      <Cell columns={8} className="calendar__appointment_list__item__title">
-        Appointment title
-      </Cell>
-      <Cell columns={2} className="calendar__appointment_list__item__done">
-        <input type="checkbox" checked={true} disabled />
-      </Cell>
-    </Row>
-    <Row className="calendar__appointment_list__item">
-      <Cell columns={2} className="calendar__appointment_list__item__hour">
-        10.00
-      </Cell>
-      <Cell columns={8} className="calendar__appointment_list__item__title">
-        Appointment title
-      </Cell>
-      <Cell columns={2} className="calendar__appointment_list__item__done">
-        <input type="checkbox" checked={true} disabled />
-      </Cell>
-    </Row>
-    <Row className="calendar__appointment_list__item">
-      <Cell columns={2} className="calendar__appointment_list__item__hour">
-        10.00
-      </Cell>
-      <Cell columns={8} className="calendar__appointment_list__item__title">
-        Appointment title
-      </Cell>
-      <Cell columns={2} className="calendar__appointment_list__item__done">
-        <input type="checkbox" checked={true} disabled />
-      </Cell>
-    </Row>
-    <Row className="calendar__appointment_list__item">
-      <Cell columns={2} className="calendar__appointment_list__item__hour">
-        10.00
-      </Cell>
-      <Cell columns={8} className="calendar__appointment_list__item__title">
-        Appointment title
-      </Cell>
-      <Cell columns={2} className="calendar__appointment_list__item__done">
-        <input type="checkbox" checked={true} disabled />
-      </Cell>
-    </Row>
-  </div>
-);
+const Appointments: React.FunctionComponent = () => {
+  const { date } = useContext(CalendarContext);
+  const appointments = useContext(AppointmentsContext);
+  const selectedDate = moment(date).format("YYYY-MM-DD");
+  const list = appointments[selectedDate] || [];
+  return (
+    <div className="calendar__appointment_list">
+      {list.map((appointment: IAppointment) => (
+        <Appointment {...appointment} key={appointment.id} />
+      ))}
+    </div>
+  );
+};
 
 export default Appointments;

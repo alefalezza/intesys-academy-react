@@ -1,0 +1,14 @@
+.calendar {
+  &__navigation {
+    padding: 15px;
+    &__date {
+      font-weight: bold;
+    }
+    &__buttons {
+      text-align: right;
+      .mdc-button {
+        min-width: 0;
+      }
+    }
+  }
+}

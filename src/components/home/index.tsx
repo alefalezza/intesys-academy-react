@@ -4,6 +4,7 @@ import { Overline } from "@material/react-typography";
 import React from "react";
 import Breadcrumb from "../breadcrumb/breadcrumb";
 import BreadcrumbEl from "../breadcrumb/breadcrumb-el";
+import Calendar from "./calendar";
 import CallToActions from "./call_to_actions";
 import "./index.scss";
 import { materialList } from "./materials/data"; // tmp: data will be fetched from api

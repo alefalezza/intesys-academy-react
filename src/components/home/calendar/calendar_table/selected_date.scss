@@ -1,0 +1,17 @@
+@import "../../../../variables";
+
+.calendar__selected_date {
+  background: $app-footer-background;
+  // margin: 15px 0 15px 15px;
+  padding: 50px 0;
+  border-radius: 10px;
+  text-align: center;
+  &__is_today {
+    color: $mdc-theme-primary;
+    line-height: 2em;
+  }
+  &__selected_date {
+    font-size: 1.5em;
+    color: #fff;
+  }
+}
