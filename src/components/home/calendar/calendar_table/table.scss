@@ -23,12 +23,18 @@ $cell-size: 2.5em;
       &:hover {
         background: lighten($mdc-theme-secondary, 35);
       }
-      &.today {
+      &.selected {
         background: $mdc-theme-primary;
         color: #fff;
-        border-radius: 10em;
+        &.today {
+          color: #fff;
+        }
+      }
+      &.today {
+        color: $mdc-theme-primary;
         &:hover {
           background: $mdc-theme-primary;
+          color: #fff;
         }
       }
     }

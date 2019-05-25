@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { CalendarContext } from "..";
 import { week_subs } from "../utils";
 import { CalendarTableData, IDay } from "./lib";
+import moment from "moment";
 import "./table.scss";
 
 const Table: React.FunctionComponent = () => {
@@ -13,6 +14,11 @@ const Table: React.FunctionComponent = () => {
       return null;
     }
     const className = day.isToday ? "today" : "";
+
+    const selected = moment(day.fullDate).isSame(date, "day");
+    if (selected) {
+      className += " selected";
+    }
 
     const handleClick = () => {
       day.fullDate && setDate(day.fullDate);
