@@ -13,7 +13,7 @@ const Table: React.FunctionComponent = () => {
     if (day.num === null) {
       return null;
     }
-    const className = day.isToday ? "today" : "";
+    let className = day.isToday ? "today" : "";
 
     const selected = moment(day.fullDate).isSame(date, "day");
     if (selected) {
