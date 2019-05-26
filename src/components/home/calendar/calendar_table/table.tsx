@@ -1,12 +1,15 @@
-import React, { useContext } from "react";
-import { CalendarContext } from "..";
+import moment from "moment";
+import React, { Dispatch, SetStateAction } from "react";
 import { week_subs } from "../utils";
 import { CalendarTableData, IDay } from "./lib";
-import moment from "moment";
 import "./table.scss";
 
-const Table: React.FunctionComponent = () => {
-  const { date, setDate } = useContext(CalendarContext);
+interface ITable {
+  date: Date;
+  setDate: Dispatch<SetStateAction<Date>>;
+}
+
+const Table: React.FunctionComponent<ITable> = ({ date, setDate }) => {
   const calendar = new CalendarTableData(date);
 
   const Day: React.FunctionComponent<{ day: IDay }> = ({ day }) => {

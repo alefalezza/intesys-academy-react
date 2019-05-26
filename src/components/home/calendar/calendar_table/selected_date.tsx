@@ -1,11 +1,13 @@
 import moment from "moment";
-import React, { useContext } from "react";
-import { CalendarContext } from "..";
+import React from "react";
 import { isToday } from "../utils";
 import "./selected_date.scss";
 
-const SelectedDate: React.FunctionComponent = () => {
-  const { date } = useContext(CalendarContext);
+interface ISelectedDate {
+  date: Date;
+}
+
+const SelectedDate: React.FunctionComponent<ISelectedDate> = ({ date }) => {
   return (
     <div className="calendar__selected_date">
       {isToday(date) ? (
