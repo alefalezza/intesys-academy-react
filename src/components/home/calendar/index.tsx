@@ -6,48 +6,29 @@ import { appointments, IAppointmentList } from "./data";
 import "./index.scss";
 import { useDate } from "./lib";
 import Summary from "./summary";
-
-interface ICalendarContext {
-  date: Date;
-  setDate: Dispatch<SetStateAction<Date>>;
-  prevMonth: () => void;
-  nextMonth: () => void;
-}
-
-export const CalendarContext: React.Context<
-  ICalendarContext
-> = React.createContext({
-  date: new Date(),
-  setDate: () => {},
-  prevMonth: () => {},
-  nextMonth: () => {}
-});
-
-export const AppointmentsContext: React.Context<
-  IAppointmentList
-> = React.createContext(appointments);
+import SelectedDate from "./calendar_table/selected_date";
+import Header from "./calendar_table/header";
+import Table from "./calendar_table/table";
 
 const Calendar: React.FunctionComponent = () => {
   const [date, setDate, prevMonth, nextMonth] = useDate(new Date());
-  const calendarContextValue = {
-    date,
-    setDate,
-    prevMonth,
-    nextMonth
-  };
 
   return (
-    <CalendarContext.Provider value={calendarContextValue}>
-      <AppointmentsContext.Provider value={appointments}>
-        <div className="calendar">
-          <CalendarTable />
-          <Overline>Appointments</Overline>
-          <Appointments />
-          <Overline>Summary</Overline>
-          <Summary />
-        </div>
-      </AppointmentsContext.Provider>
-    </CalendarContext.Provider>
+    <div className="calendar">
+      <CalendarTable
+        childLeft={<SelectedDate date={date} />}
+        childRight={
+          <React.Fragment>
+            <Header {...{ date, nextMonth, prevMonth }} />
+            <Table {...{ date, setDate }} />
+          </React.Fragment>
+        }
+      />
+      <Overline>Appointments</Overline>
+      <Appointments {...{ date, appointments }} />
+      <Overline>Summary</Overline>
+      <Summary />
+    </div>
   );
 };
 
