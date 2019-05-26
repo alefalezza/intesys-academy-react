@@ -8,6 +8,7 @@ import CallToActions from "./call_to_actions";
 import "./index.scss";
 import { materialList } from "./materials/data"; // tmp: data will be fetched from api
 import MaterialList from "./materials/material_list";
+import Calendar from "./calendar";
 
 const Home: React.FunctionComponent = () => {
   return (
@@ -27,7 +28,9 @@ const Home: React.FunctionComponent = () => {
         </Cell>
         <Cell columns={6}>
           <Overline>Calendar</Overline>
-          <Card>Place calendar here</Card>
+          <Card>
+            <Calendar />
+          </Card>
         </Cell>
       </Row>
     </div>
