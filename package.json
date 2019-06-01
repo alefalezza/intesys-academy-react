@@ -11,7 +11,7 @@
     "start": "parcel public/index.html",
     "build": "parcel build public/index.html",
     "test": "jest",
-    "server": "json-server scripts/appointments-by-date.js"
+    "server": "json-server scripts/server.js"
   },
   "author": "Alessandro Falezza",
   "license": "MIT",
