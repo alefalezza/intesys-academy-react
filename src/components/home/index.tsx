@@ -9,7 +9,6 @@ import CallToActions from "./call_to_actions";
 import "./index.scss";
 import { materialList } from "./materials/data"; // tmp: data will be fetched from api
 import MaterialList from "./materials/material_list";
-import Calendar from "./calendar";
 
 const Home: React.FunctionComponent = () => {
   return (
