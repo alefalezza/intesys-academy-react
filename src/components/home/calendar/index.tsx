@@ -1,8 +1,8 @@
 import { Overline } from "@material/react-typography";
 import React, { Dispatch, useReducer } from "react";
 import Appointments from "./appointments";
+import AppointmentsProvider from "./appointments_provider";
 import CalendarTable from "./calendar_table";
-import { appointments, IAppointmentList } from "./data";
 import "./index.scss";
 import { Action, dateReducer } from "./lib";
 import Summary from "./summary";
@@ -19,10 +19,6 @@ export const CalendarContext: React.Context<
   dispatch: () => {}
 });
 
-export const AppointmentsContext: React.Context<
-  IAppointmentList
-> = React.createContext(appointments);
-
 const Calendar: React.FunctionComponent = () => {
   const [date, dispatch] = useReducer(dateReducer, new Date());
   const calendarContextValue = {
@@ -32,7 +28,7 @@ const Calendar: React.FunctionComponent = () => {
 
   return (
     <CalendarContext.Provider value={calendarContextValue}>
-      <AppointmentsContext.Provider value={appointments}>
+      <AppointmentsProvider>
         <div className="calendar">
           <CalendarTable />
           <Overline>Appointments</Overline>
@@ -40,7 +36,7 @@ const Calendar: React.FunctionComponent = () => {
           <Overline>Summary</Overline>
           <Summary />
         </div>
-      </AppointmentsContext.Provider>
+      </AppointmentsProvider>
     </CalendarContext.Provider>
   );
 };

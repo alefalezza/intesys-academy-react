@@ -1,9 +1,9 @@
 import moment from "moment";
 import React, { useContext } from "react";
-import { AppointmentsContext, CalendarContext } from "..";
-import { IAppointment } from "../data";
+import { CalendarContext } from "..";
 import Appointment from "./appointment";
 import "./index.scss";
+import { AppointmentsContext, IAppointment } from "../appointments_provider";
 
 const Appointments: React.FunctionComponent = () => {
   const { date } = useContext(CalendarContext);

@@ -1,6 +1,6 @@
 import { Row, Cell } from "@material/react-layout-grid";
 import React from "react";
-import { IAppointment } from "../data";
+import { IAppointment } from "../appointments_provider";
 
 const Appointment: React.FunctionComponent<IAppointment> = ({
   hour,
