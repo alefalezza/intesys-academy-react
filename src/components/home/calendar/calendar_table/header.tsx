@@ -7,7 +7,9 @@ import { monthName } from "../utils";
 import "./header.scss";
 
 const Header: React.FunctionComponent = () => {
-  const { date, prevMonth, nextMonth } = useContext(CalendarContext);
+  const { date, dispatch } = useContext(CalendarContext);
+  const prevMonth = () => dispatch({ type: "PREV_MONTH" });
+  const nextMonth = () => dispatch({ type: "NEXT_MONTH" });
   return (
     <Row className="calendar__navigation">
       <Cell columns={6} className="calendar__navigation__date">

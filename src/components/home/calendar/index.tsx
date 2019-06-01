@@ -1,26 +1,22 @@
 import { Overline } from "@material/react-typography";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, useReducer } from "react";
 import Appointments from "./appointments";
 import CalendarTable from "./calendar_table";
 import { appointments, IAppointmentList } from "./data";
 import "./index.scss";
-import { useDate } from "./lib";
+import { Action, dateReducer } from "./lib";
 import Summary from "./summary";
 
 interface ICalendarContext {
   date: Date;
-  setDate: Dispatch<SetStateAction<Date>>;
-  prevMonth: () => void;
-  nextMonth: () => void;
+  dispatch: Dispatch<Action>;
 }
 
 export const CalendarContext: React.Context<
   ICalendarContext
 > = React.createContext({
   date: new Date(),
-  setDate: () => {},
-  prevMonth: () => {},
-  nextMonth: () => {}
+  dispatch: () => {}
 });
 
 export const AppointmentsContext: React.Context<
@@ -28,12 +24,10 @@ export const AppointmentsContext: React.Context<
 > = React.createContext(appointments);
 
 const Calendar: React.FunctionComponent = () => {
-  const [date, setDate, prevMonth, nextMonth] = useDate(new Date());
+  const [date, dispatch] = useReducer(dateReducer, new Date());
   const calendarContextValue = {
     date,
-    setDate,
-    prevMonth,
-    nextMonth
+    dispatch
   };
 
   return (

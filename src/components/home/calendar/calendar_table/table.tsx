@@ -6,7 +6,7 @@ import moment from "moment";
 import "./table.scss";
 
 const Table: React.FunctionComponent = () => {
-  const { date, setDate } = useContext(CalendarContext);
+  const { date, dispatch } = useContext(CalendarContext);
   const calendar = new CalendarTableData(date);
 
   const Day: React.FunctionComponent<{ day: IDay }> = ({ day }) => {
@@ -21,7 +21,7 @@ const Table: React.FunctionComponent = () => {
     }
 
     const handleClick = () => {
-      day.fullDate && setDate(day.fullDate);
+      day.fullDate && dispatch({ type: "SET_DATE", payload: day.fullDate });
     };
 
     return (
