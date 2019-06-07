@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-
-const apiEndpoint = "http://localhost:3000/appointmentsByDate";
+import { API_ENDPOINT } from "../../../config/consts";
 
 export interface IAppointment {
   id: number;
@@ -11,19 +10,23 @@ export interface IAppointment {
 
 export interface IAppointmentList extends Record<string, IAppointment[]> {}
 
+interface IAppointmentListApi {
+  appointmentList: IAppointmentList;
+}
+
 export const AppointmentsContext: React.Context<
   IAppointmentList
 > = React.createContext({});
 
-const getAppointments = (): Promise<IAppointmentList> =>
-  fetch(apiEndpoint).then(r => r.json());
+const getAppointments = (): Promise<IAppointmentListApi> =>
+  fetch(API_ENDPOINT).then(r => r.json());
 
 const AppointmentsProvider: React.FunctionComponent = ({ children }) => {
-  const [appointments, setAppointments] = useState({});
+  const [appointments, setAppointments] = useState({} as IAppointmentList);
 
   useEffect(() => {
     getAppointments().then(({ appointmentList }) =>
-      setAppointments(appointmentList)
+      setAppointments(appointmentList as IAppointmentList)
     );
   }, []);
 
