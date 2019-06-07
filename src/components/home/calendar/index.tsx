@@ -1,9 +1,5 @@
 import { Overline } from "@material/react-typography";
-import React, { Dispatch, useEffect, useReducer } from "react";
-import { connect } from "react-redux";
-import { getAppointments } from "../../../lib/store/appointments/actions";
-import { IAppointmentList } from "../../../lib/store/appointments/types";
-import { IStore } from "../../../types/store";
+import React, { Dispatch, useReducer } from "react";
 import Appointments from "./appointments";
 import CalendarTable from "./calendar_table";
 import "./index.scss";
@@ -22,36 +18,19 @@ export const CalendarContext: React.Context<
   dispatch: action => {}
 });
 
-interface ICalendarActions {
-  appointments: IAppointmentList;
-}
-
-interface ICalendarDispatch {
-  getAppointments: () => void;
-}
-
-interface ICalendar extends ICalendarActions, ICalendarDispatch {}
-
-const Calendar: React.FunctionComponent<ICalendar> = ({
-  appointments,
-  getAppointments
-}) => {
+const Calendar: React.FunctionComponent = () => {
   const [date, dispatch] = useReducer(dateReducer, new Date());
   const calendarContextValue = {
     date,
     dispatch
   };
 
-  useEffect(() => {
-    getAppointments();
-  }, []);
-
   return (
     <CalendarContext.Provider value={calendarContextValue}>
       <div className="calendar">
         <CalendarTable />
         <Overline>Appointments</Overline>
-        <Appointments appointments={appointments} />
+        <Appointments />
         <Overline>Summary</Overline>
         <Summary />
       </div>
@@ -59,15 +38,4 @@ const Calendar: React.FunctionComponent<ICalendar> = ({
   );
 };
 
-const mapStateToProps = (store: IStore) => ({
-  appointments: store.appointments
-});
-
-const mapDispatchToProps = {
-  getAppointments
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Calendar);
+export default Calendar;
