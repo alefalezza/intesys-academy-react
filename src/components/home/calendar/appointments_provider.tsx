@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-const apiEndpoint = "http://localhost:3000/appointmentList";
+const apiEndpoint = "http://localhost:3000/appointmentsByDate";
 
 export interface IAppointment {
   id: number;
@@ -22,7 +22,9 @@ const AppointmentsProvider: React.FunctionComponent = ({ children }) => {
   const [appointments, setAppointments] = useState({});
 
   useEffect(() => {
-    getAppointments().then(data => setAppointments(data));
+    getAppointments().then(({ appointmentList }) =>
+      setAppointments(appointmentList)
+    );
   }, []);
 
   return (
