@@ -1,10 +1,15 @@
 import Tab from "@material/react-tab";
 import TabBar from "@material/react-tab-bar";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import MaterialItem from "./material_item";
 import { IMaterialList, IMaterialItem } from "./types";
 
-const MaterialList: React.FunctionComponent<IMaterialList> = props => {
+const apiEndpoint = "http://localhost:3000/materials";
+
+const getMaterials = (): Promise<IMaterialList> =>
+  fetch(apiEndpoint).then(r => r.json());
+
+const MaterialList: React.FunctionComponent = () => {
   const [activeTab, setActiveTab] = useState(0);
 
   const handleActiveTabUpdate = (activeIndex: number) =>
@@ -14,7 +19,16 @@ const MaterialList: React.FunctionComponent<IMaterialList> = props => {
 
   const activeList = listMap[activeTab];
 
-  const list: IMaterialItem[] = props[activeList];
+  const [materials, setMaterials] = useState({
+    drugs: [],
+    nursing: []
+  } as IMaterialList);
+
+  useEffect(() => {
+    getMaterials().then(materials => setMaterials(materials));
+  }, []);
+
+  const list: IMaterialItem[] = materials[activeList];
 
   return (
     <React.Fragment>

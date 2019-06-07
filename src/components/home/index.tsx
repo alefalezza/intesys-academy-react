@@ -8,23 +8,8 @@ import Calendar from "./calendar";
 import CallToActions from "./call_to_actions";
 import "./index.scss";
 import MaterialList from "./materials/material_list";
-import { IMaterialList } from "./materials/types";
-
-const apiEndpoint = "http://localhost:3000/materials";
-
-const getMaterials = (): Promise<IMaterialList> =>
-  fetch(apiEndpoint).then(r => r.json());
 
 const Home: React.FunctionComponent = () => {
-  const [materials, setMaterials] = useState({
-    drugs: [],
-    nursing: []
-  } as IMaterialList);
-
-  useEffect(() => {
-    getMaterials().then(materials => setMaterials(materials));
-  }, []);
-
   return (
     <div className="home">
       <Breadcrumb>
@@ -37,7 +22,7 @@ const Home: React.FunctionComponent = () => {
         <Cell columns={6}>
           <Overline>Materials are running out</Overline>
           <Card>
-            <MaterialList {...materials} />
+            <MaterialList />
           </Card>
         </Cell>
         <Cell columns={6}>
