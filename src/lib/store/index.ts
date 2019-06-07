@@ -2,6 +2,10 @@ import { combineReducers } from "redux";
 import { IStore } from "../../types/store";
 import init from "./init";
 
-const reducers = combineReducers<IStore>({});
+import appointments from "./appointments/reducer";
+
+const reducers = combineReducers<IStore>({
+  appointments
+});
 
 export default init(reducers);
