@@ -1,7 +1,7 @@
 import Tab from "@material/react-tab";
 import TabBar from "@material/react-tab-bar";
-import React, { useContext, useEffect, useState } from "react";
-import { getMaterials, MaterialContext } from "../../../lib/material-provider";
+import React, { useContext, useState } from "react";
+import { MaterialContext } from "../../../lib/material-provider";
 import MaterialItem from "./material_item";
 import { IMaterialItem } from "./types";
 
@@ -15,11 +15,7 @@ const MaterialList: React.FunctionComponent = () => {
 
   const activeList = listMap[activeTab];
 
-  const { materials, setMaterials } = useContext(MaterialContext);
-
-  useEffect(() => {
-    getMaterials().then(materials => setMaterials(materials));
-  }, []);
+  const materials = useContext(MaterialContext);
 
   const list: IMaterialItem[] = materials[activeList];
 
