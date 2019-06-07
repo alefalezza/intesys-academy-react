@@ -16,7 +16,7 @@ export const CalendarContext: React.Context<
   ICalendarContext
 > = React.createContext({
   date: new Date(),
-  dispatch: () => {}
+  dispatch: action => {}
 });
 
 const Calendar: React.FunctionComponent = () => {
