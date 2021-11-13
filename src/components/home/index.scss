@@ -24,6 +24,12 @@
     height: 12em;
     padding: 0 7em;
     border-radius: 10px;
+    background-color: #fff;
+    color: $mdc-theme-primary;
+
+    &:not(:disabled) {
+      color: $mdc-theme-primary;
+    }
 
     &--active.mdc-button {
       background-color: $mdc-theme-primary;
