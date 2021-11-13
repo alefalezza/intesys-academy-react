@@ -1,6 +1,5 @@
 module.exports = {
   roots: ["<rootDir>/src"],
-  setupFilesAfterEnv: ["<rootDir>/src/setup_tests.ts"],
   transform: {
     "^.+\\.tsx?$": "ts-jest",
     "^.+.(?!js|jsx|ts|tsx).*$": "jest-transform-stub", // stubs all not javascript files

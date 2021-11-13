@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Home from "./components/home";
 import Patients from "./components/patients";
 import Patient from "./components/patient";
@@ -12,17 +12,35 @@ import News from "./components/news";
 
 const Routes: React.FunctionComponent = () => {
   return (
-    <Switch>
-      <Route path='/' exact component={Home} />
-      <Route path='/patients' exact component={Patients} />
-      <Route path='/patients/:id' component={Patient} />
-      <Route path='/staff' exact component={Staff} />
-      <Route path='/staff/:id' component={StaffMember} />
-      <Route path='/pharmacy' exact component={Pharmacy} />
-      <Route path='/ward' exact component={Ward} />
-      <Route path='/billing' exact component={Billing} />
-      <Route path='/news' exact component={News} />
-    </Switch>
+    <Routes>
+      <Route path="/">
+        <Home />
+      </Route>
+      <Route path="/patients">
+        <Patients />
+      </Route>
+      <Route path="/patients/:id">
+        <Patient />
+      </Route>
+      <Route path="/staff">
+        <Staff />
+      </Route>
+      <Route path="/staff/:id">
+        <StaffMember />
+      </Route>
+      <Route path="/pharmacy">
+        <Pharmacy />
+      </Route>
+      <Route path="/ward">
+        <Ward />
+      </Route>
+      <Route path="/billing">
+        <Billing />
+      </Route>
+      <Route path="/news">
+        <News />
+      </Route>
+    </Routes>
   );
 };
 
