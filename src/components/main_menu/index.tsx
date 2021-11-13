@@ -4,25 +4,25 @@ import { Link } from "react-router-dom";
 const MainMenu: React.FunctionComponent = () => (
   <ul>
     <li>
-      <Link to='/'>Dashboard</Link>
+      <Link to="/">Dashboard</Link>
     </li>
     <li>
-      <Link to='/patients'>Patients database</Link>
+      <Link to="/patients">Patients database</Link>
     </li>
     <li>
-      <Link to='/staff'>Colleagues database</Link>
+      <Link to="/staff">Colleagues database</Link>
     </li>
     <li>
-      <Link to='/pharmacy'>Pharmacy</Link>
+      <Link to="/pharmacy">Pharmacy</Link>
     </li>
     <li>
-      <Link to='/ward'>Ward</Link>
+      <Link to="/ward">Ward</Link>
     </li>
     <li>
-      <Link to='/billing'>Billing</Link>
+      <Link to="/billing">Billing</Link>
     </li>
     <li>
-      <Link to='/news'>News</Link>
+      <Link to="/news">News</Link>
     </li>
   </ul>
 );

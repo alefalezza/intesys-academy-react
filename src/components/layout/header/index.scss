@@ -35,7 +35,7 @@ $menu-horizontal-padding: 30px;
 .layout {
   &-header {
     background: $app-header-background;
-    box-shadow: 0 0 10px darken($mdc-theme-background, 10%);
+    box-shadow: 0 5px 10px $app-shadow;
     margin-bottom: 35px;
     &-toolbar {
       @include height($toolbar-height);

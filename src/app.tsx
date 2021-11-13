@@ -1,5 +1,4 @@
 import React from "react";
-import Layout from "./components/layout/layout";
 import "./app.scss";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./components/home";
@@ -11,9 +10,12 @@ import Pharmacy from "./components/pharmacy";
 import Ward from "./components/ward";
 import Billing from "./components/billing";
 import News from "./components/news";
+import { MaterialProvider } from "./lib/material-provider";
+import Layout from "./components/layout/layout";
 
 const App: React.FunctionComponent = () => (
   <div className="__show-structure">
+    <MaterialProvider>
     <BrowserRouter>
       <Layout>
         <Routes>
@@ -29,6 +31,7 @@ const App: React.FunctionComponent = () => (
         </Routes>
       </Layout>
     </BrowserRouter>
+    </MaterialProvider>
   </div>
 );
 

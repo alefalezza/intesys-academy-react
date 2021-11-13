@@ -1,0 +1,22 @@
+@import "../../../../variables";
+
+// appointments
+.calendar__appointment_list {
+  border-top: 1px solid #eee;
+  margin: 0 -20px;
+  &__item {
+    padding: 15px 20px;
+    // border-bottom: 1px solid #eee;
+    &:hover {
+      background: lighten($mdc-theme-primary, 36);
+    }
+    &__hour {
+      font-weight: bold;
+    }
+    &__title {
+    }
+    &__done {
+      text-align: right;
+    }
+  }
+}

@@ -4,7 +4,7 @@ import Menu from "./menu";
 import "./index.scss";
 
 const Header: React.FunctionComponent = () => (
-  <div className='layout-header'>
+  <div className="layout-header">
     <Toolbar />
     <Menu />
   </div>

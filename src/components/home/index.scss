@@ -1,0 +1,71 @@
+@import "../../variables.scss";
+
+.home {
+  .mdc-card {
+    border-radius: 8px;
+  }
+  &__row {
+    margin-bottom: 20px;
+  }
+  &__call_to_actions {
+    padding: 40px 0;
+  }
+  &__main {
+  }
+  &__main_button_cell {
+    &--left {
+      text-align: left;
+    }
+    &--right {
+      text-align: right;
+    }
+  }
+  &__main_button {
+    height: 12em;
+    padding: 0 7em;
+    border-radius: 10px;
+
+    &--active.mdc-button {
+      background-color: $mdc-theme-primary;
+      color: #fff;
+    }
+
+    i {
+      display: block;
+      font-size: 4em;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+.drug_list {
+  &__header {
+    position: relative;
+    box-shadow: 0 5px 5px $app-shadow;
+    z-index: 1;
+  }
+  &__item {
+    padding: 40px 20px;
+    border-bottom: 1px solid #eee;
+    &:hover {
+      background-color: lighten($mdc-theme-primary, 36);
+    }
+    h3 {
+      margin: 0 0 10px 0;
+      font-size: 1em;
+      font-weight: bold;
+    }
+    &__quantity {
+      font-size: 3em;
+      font-weight: bold;
+    }
+    &__caption {
+      color: #666;
+      font-size: 0.8em;
+    }
+  }
+  &__see_all_button {
+    height: 70px;
+    color: $mdc-theme-primary;
+  }
+}

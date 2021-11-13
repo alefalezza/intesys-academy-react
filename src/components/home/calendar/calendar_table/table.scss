@@ -1,0 +1,42 @@
+@import "../../../../variables";
+
+$cell-size: 2.5em;
+
+.calendar__table {
+  // padding: 14px;
+  table {
+    width: 100%;
+  }
+  th,
+  td {
+    text-align: center;
+    div {
+      cursor: pointer;
+      width: $cell-size;
+      line-height: $cell-size;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 10em;
+      line-height: $cell-size;
+      width: $cell-size;
+      &:hover {
+        background: lighten($mdc-theme-secondary, 35);
+      }
+      &.selected {
+        background: $mdc-theme-primary;
+        color: #fff;
+        &.today {
+          color: #fff;
+        }
+      }
+      &.today {
+        color: $mdc-theme-primary;
+        &:hover {
+          background: $mdc-theme-primary;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
