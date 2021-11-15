@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
+import { basePath } from "../../../config/api";
 
-const apiEndpoint = "http://localhost:3000/appointmentsByDate";
+const apiEndpoint = `${basePath}/appointmentsByDate`;
 
 export interface IAppointment {
   id: number;
@@ -11,12 +12,11 @@ export interface IAppointment {
 
 export interface IAppointmentList extends Record<string, IAppointment[]> {}
 
-export const AppointmentsContext: React.Context<
-  IAppointmentList
-> = React.createContext({});
+export const AppointmentsContext: React.Context<IAppointmentList> =
+  React.createContext({});
 
 const getAppointments = (): Promise<IAppointmentList> =>
-  fetch(apiEndpoint).then(r => r.json());
+  fetch(apiEndpoint).then((r) => r.json());
 
 const AppointmentsProvider: React.FunctionComponent = ({ children }) => {
   const [appointments, setAppointments] = useState({});

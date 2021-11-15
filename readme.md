@@ -23,6 +23,7 @@ You need **nodejs** and **git** installed on your machine.
 - [scss](https://sass-lang.com/)
 - [typescript](https://www.typescriptlang.org/)
 - UI kit: [Material components](https://github.com/material-components/material-components-web-react#components)
+- Development mock server: [msw](https://mswjs.io/)
 
 ### Building
 
