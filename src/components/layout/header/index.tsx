@@ -5,7 +5,7 @@ import "./index.scss";
 
 const Header: React.FunctionComponent = () => (
   <div className="layout-header">
-    <Toolbar />
+    {/* <Toolbar /> */}
     <Menu />
   </div>
 );
